@@ -22,14 +22,14 @@ pipeline{
         }
         stage('Archive Artifact'){
             steps{
-                archiveArtifacts : artifacts '**/target/spring-petclinic*.jar',
+                archiveArtifacts artifacts: '**/target/spring-petclinic*.jar',
                     onlyIfSuccessful : true,
                     allowEmptyArchive : false
             }
         }
         stage('Publish Junit Results'){
             steps{
-                junit : testResults : '**/surefire-reports/TEST-*.xml'
+                junit testResults : '**/surefire-reports/TEST-*.xml'
             }
         }
     }
