@@ -22,8 +22,8 @@ pipeline{
         }
         stage('Archive Artifact'){
             steps{
-                archiveArtifacts : onlyIfSuccessful : true,
-                    artifacts '**/target/spring-petclinic*.jar',
+                archiveArtifacts : artifacts '**/target/spring-petclinic*.jar',
+                    onlyIfSuccessful : true,
                     allowEmptyArchive : false
             }
         }
