@@ -27,10 +27,10 @@ pipeline{
                     allowEmptyArchive : false
             }
         }
-        // stage('Publish Junit Results'){
-        //     steps{
-        //         junit testResults : '**/surefire-reports/TEST-*.xml'
-        //     }
-        // }
+        stage('Publish Junit Results'){
+            steps{
+                junit testResults : '**/surefire-reports/TEST-*.xml'
+            }
+        }
     }
 }
