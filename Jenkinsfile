@@ -29,7 +29,13 @@ pipeline{
         }
         stage('Publish Junit Results'){
             steps{
-                junit testResults : '**/surefire-reports/TEST-*.xml'
+                junit testResults : '**/target/surefire-reports/TEST-*.xml'
+            }
+        }
+        stage('Docker Image Build'){
+            steps{
+                sh 'docker image build -t abhish9416/spring-petclinic:latest',
+                sh 'docker image push abhish9416/spring-petclinic:latest'
             }
         }
     }
