@@ -20,13 +20,13 @@ pipeline{
                 }
             }
         }
-        // stage('Archive Artifact'){
-        //     steps{
-        //         archiveArtifacts artifacts: '**/target/spring-petclinic-3.1.0-SNAPSHOT.jar',
-        //             onlyIfSuccessful : true,
-        //             allowEmptyArchive : false
-        //     }
-        // }
+        stage('Archive Artifact'){
+            steps{
+                archiveArtifacts artifacts: '**/target/spring-petclinic-3.1.0-SNAPSHOT.jar',
+                    onlyIfSuccessful : true,
+                    allowEmptyArchive : false
+            }
+        }
         // stage('Publish Junit Results'){
         //     steps{
         //         junit testResults : '**/surefire-reports/TEST-*.xml'
