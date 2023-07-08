@@ -13,24 +13,24 @@ pipeline{
                 sh 'mvn package'
             }
         }
-        stage('Static Code Analysis'){
-            steps{
-                withwithSonarQubeEnv('Sonar_Cloud'){
-                    sh 'mvn clean verify sonar:sonar -Dsonar.organization=spring16 -Dsonar.projectKey=spring16'
-                }
-            }
-        }
-        stage('Archive Artifact'){
-            steps{
-                archiveArtifacts artifacts: '**/target/spring-petclinic*.jar',
-                    onlyIfSuccessful : true,
-                    allowEmptyArchive : false
-            }
-        }
-        stage('Publish Junit Results'){
-            steps{
-                junit testResults : '**/surefire-reports/TEST-*.xml'
-            }
-        }
+        // stage('Static Code Analysis'){
+        //     steps{
+        //         withwithSonarQubeEnv('Sonar_Cloud'){
+        //             sh 'mvn clean verify sonar:sonar -Dsonar.organization=spring16 -Dsonar.projectKey=spring16'
+        //         }
+        //     }
+        // }
+        // stage('Archive Artifact'){
+        //     steps{
+        //         archiveArtifacts artifacts: '**/target/spring-petclinic*.jar',
+        //             onlyIfSuccessful : true,
+        //             allowEmptyArchive : false
+        //     }
+        // }
+        // stage('Publish Junit Results'){
+        //     steps{
+        //         junit testResults : '**/surefire-reports/TEST-*.xml'
+        //     }
+        // }
     }
 }
