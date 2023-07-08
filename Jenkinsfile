@@ -15,7 +15,7 @@ pipeline{
         }
         stage('Static Code Analysis'){
             steps{
-                withwithSonarQubeEnv('Sonar_Cloud'){
+                withSonarQubeEnv('Sonar_Cloud'){
                     sh 'mvn clean verify sonar:sonar -Dsonar.organization=spring16 -Dsonar.projectKey=spring16'
                 }
             }
