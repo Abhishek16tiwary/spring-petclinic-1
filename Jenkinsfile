@@ -34,8 +34,8 @@ pipeline{
         }
         stage('Docker Image Build'){
             steps{
-                sh 'docker image build -t abhish9416/spring-petclinic:latest .'
-                sh 'docker image push abhish9416/spring-petclinic:latest'
+                sh 'docker image build -t abhish9416/petclinic:latest .'
+                sh 'docker image push abhish9416/petclinic:latest'
             }
         }
     }
