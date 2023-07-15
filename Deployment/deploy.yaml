@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Spring-Petclinic
+  labels:
+    app: petclinic
+spec:
+  minReadySeconds: 3
+  replicas: 3
+  selector:
+    matchLabels:
+      app: petclinic
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      name: Spring-Petclinic
+      labels:
+        app: petclinic
+    spec:
+      containers:
+        - name: Spring-Petclinic
+          image: abhish9416/petclinic:latest
+          ports:
+            - containerPort: 8080
+

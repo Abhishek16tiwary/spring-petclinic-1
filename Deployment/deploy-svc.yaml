@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-svc
+spec:
+  selector:
+    app: petclinic
+  type: LoadBalancer
+  ports:
+    - name: spring-svc
+      protocol: TCP
+      port: 80
+      targetPort: 8080
