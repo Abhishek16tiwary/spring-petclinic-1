@@ -38,5 +38,11 @@ pipeline{
                 sh 'docker image push abhish9416/petclinic:latest'
             }
         }
+        stage('Deployment'){
+            steps{
+                sh 'cd ./Deployment && kubectl apply -f .'
+                sh 'kubectl get svc && kubectl get deploy'
+            }
+        }
     }
 }
