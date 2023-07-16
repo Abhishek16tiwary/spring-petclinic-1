@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Spring-Petclinic
+  name: spring-petclinic
   labels:
     app: petclinic
 spec:
@@ -18,12 +18,12 @@ spec:
       maxUnavailable: 1
   template:
     metadata:
-      name: Spring-Petclinic
+      name: spring-petclinic
       labels:
         app: petclinic
     spec:
       containers:
-        - name: Spring-Petclinic
+        - name: spring-petclinic
           image: abhish9416/petclinic:latest
           ports:
             - containerPort: 8080
