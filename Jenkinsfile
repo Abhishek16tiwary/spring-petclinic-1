@@ -41,6 +41,7 @@ pipeline{
         stage('Deployment'){
             steps{
                 sh 'cd ./Deployment && kubectl apply -f .'
+                sh 'sleep 10s'
                 sh 'kubectl get svc && kubectl get deploy'
             }
         }
